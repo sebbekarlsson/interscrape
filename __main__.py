@@ -1,3 +1,5 @@
-from interscrape.Scraper import r
+from interscrape.Scraper import Scraper
 
-print(r)
+
+scraper = Scraper()
+print(scraper.scrape('http://www.asp.net/'))

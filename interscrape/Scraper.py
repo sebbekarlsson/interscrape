@@ -1,7 +1,13 @@
 import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)) + '/lib/requests.zip')
-import requests
+from pkg_resources import resource_filename
+sys.path.insert(0, resource_filename(__name__, 'lib/requests.zip'))
+from requests import Session
 
-r = requests.get('http://www.asp.net/')
-print(r.text)
+class Scraper(object):
+
+    def __init__(self):
+        self.session = Session()
+
+    def scrape(self, url):
+        return self.session.get(url).text
