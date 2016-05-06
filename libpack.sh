@@ -6,8 +6,9 @@ TAR_NAME=$LIB_NAME.tar.gz
 curl -s $2 > $LIB_PATH/$TAR_NAME
 tar xzf $LIB_PATH/$TAR_NAME -C $LIB_PATH/.
 mv $LIB_PATH/$LIB_NAME*/ $LIB_PATH/$LIB_NAME
+cd $LIB_PATH/$LIB_NAME
+zip -r ../$LIB_NAME.zip ./ > /dev/null
 cd $LIB_PATH
-zip -r $LIB_NAME.zip $LIB_NAME > /dev/null
 rm -rf $LIB_NAME
 cd $THE_PATH
 rm -rf $LIB_PATH/*.gz
